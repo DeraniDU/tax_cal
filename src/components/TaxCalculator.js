@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+
+
 const TaxCalculator = () => {
   const [productPrice, setProductPrice] = useState('');
   const [taxPercentage, setTaxPercentage] = useState('');
@@ -21,30 +23,37 @@ const TaxCalculator = () => {
   const { taxAmount, totalPrice } = calculateTax();
 
   return (
-    <div>
-      <div>
-        <label htmlFor="productPrice">Product Price</label>
+    <div className="tax-calculator bg-white shadow-md rounded-lg p-8 mx-auto">
+      <h2 className="text-2xl font-bold text-gray-800 mb-6">Tax Calculator</h2>
+      <div className="mb-4">
+        <label htmlFor="productPrice" className="block text-sm font-medium text-gray-700">
+          Product Price
+        </label>
         <input
           id="productPrice"
           type="number"
           value={productPrice}
           onChange={(e) => setProductPrice(e.target.value)}
+          className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           placeholder="Enter product price"
         />
       </div>
-      <div>
-        <label htmlFor="taxPercentage">Tax Percentage</label>
+      <div className="mb-6">
+        <label htmlFor="taxPercentage" className="block text-sm  text-gray-700">
+          Tax Percentage
+        </label>
         <input
           id="taxPercentage"
           type="number"
           value={taxPercentage}
           onChange={(e) => setTaxPercentage(e.target.value)}
+          className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           placeholder="Enter tax percentage"
         />
       </div>
-      <div>
-        <p>Tax Amount: ${taxAmount.toFixed(2)}</p>
-        <p>Total Price: ${totalPrice.toFixed(2)}</p>
+      <div className="mt-6">
+        <p className="text-lg font-medium text-gray-800">Tax Amount: <span className="font-bold">Rs. {taxAmount.toFixed(2)}</span></p>
+        <p className="text-lg font-medium text-gray-800">Total Price: <span className="font-bold">Rs. {totalPrice.toFixed(2)}</span></p>
       </div>
     </div>
   );
